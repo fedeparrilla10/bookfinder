@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import userData from '../data/users.json';
 
 export const AuthContext = createContext();
@@ -6,6 +7,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const login = (username, password) => {
     const user = userData.find(
@@ -14,8 +17,10 @@ export const AuthProvider = ({ children }) => {
     if (user) {
       setAuthenticated(true);
       setUser(username);
+      navigate('/');
     } else {
       setAuthenticated(false);
+      setError('Wrong username or password');
     }
   };
 
@@ -24,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ authenticated, user, login, logout, error }}>
       {children}
     </AuthContext.Provider>
   );

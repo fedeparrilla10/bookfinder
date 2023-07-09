@@ -1,17 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { login, error } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(username, password);
-    navigate('/');
   };
 
   return (
@@ -31,6 +28,8 @@ const Login = () => {
         />
         <button type="submit">Iniciar sesión</button>
       </form>
+
+      {error && <p>{error}</p>}
     </>
   );
 };
