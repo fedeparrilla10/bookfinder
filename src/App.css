@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #f9f7f4;
 }
 
 .container__content-box {

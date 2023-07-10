@@ -2,27 +2,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
-  width: 280px;
-  height: 575px;
+  width: 580px;
+}
+
+.book__main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book__main-details {
+  display: flex;
+  justify-content: space-around;
 }
 
 .book__title {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 
 .book__img {
-  height: 380px;
-  width: 300px;
+  height: 200px;
+  width: 150px;
   border-radius: 15px;
 }
 
 .book__description {
   font-size: 15px;
   line-height: 16px;
-  margin-bottom: auto;
 }
 
 .book__author {

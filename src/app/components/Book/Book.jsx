@@ -7,10 +7,18 @@ const Book = ({ book, addToFav }) => {
 
   return (
     <div className="book">
-      <h3 className="book__title">{book.title}</h3>
-      <img src={book.image} alt={book.title} className="book__img" />
-      {/* <p className="book__genre">{book.genre}</p> */}
-      <p className="book__description">{book.description}</p>
+      <div className="book__img-container">
+        <img className="book__img" src={book.image} alt={book.title} />
+      </div>
+      <div className="book__main-info">
+        <h3 className="book__title">{book.title}</h3>
+        <p className="book__description">{book.description}</p>
+        <div className="book__main-details">
+          <p className="book__author">✒️ {book.author}</p>
+          <p className="book__genre">📘 {book.genre}</p>
+          <p className="book__rating">🌟 {book.rating}</p>
+        </div>
+      </div>
       {authenticated && (
         <button onClick={() => addToFav(book)} className="book__button">
           Add to Favourites

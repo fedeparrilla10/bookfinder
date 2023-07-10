@@ -9,32 +9,38 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__logo">
-        <img src={bookShelf} alt="BookFinder Logo" className="logo__img" />
-        <h2 className="logo__title">BookFinder</h2>
-      </div>
+      <Link to="">
+        <div className="navbar__logo">
+          <img src={bookShelf} alt="BookFinder Logo" className="logo__img" />
+          <h2 className="logo__title">BookFinder</h2>
+        </div>
+      </Link>
       <ul className="navbar__menu">
-        <li className="navbar__menu__item">
-          <Link to="" activeClassName="active">
-            🏠 Home
+        <li>
+          <Link to="" className="navbar__menu__item">
+            Home
           </Link>
         </li>
-        <li className="navbar__menu__item">
-          <Link to="booklist" activeClassName="active">
-            📚 Books
+        <li>
+          <Link to="booklist" className="navbar__menu__item">
+            Books
           </Link>
         </li>
-        <li className="navbar__menu__item">
-          <Link to="favourites">⭐ My Favourites</Link>
+        <li>
+          <Link to="favourites" className="navbar__menu__item">
+            My Favourites
+          </Link>
         </li>
 
         {!authenticated ? (
-          <li className="navbar__menu__item">
-            <Link to="login">👤 Login</Link>
+          <li>
+            <Link to="login" className="navbar__menu__item">
+              Login
+            </Link>
           </li>
         ) : (
-          <li className="navbar__menu__item">
-            <Link to="" onClick={logout}>
+          <li>
+            <Link to="" onClick={logout} className="navbar__menu__item">
               Logout
             </Link>
           </li>
