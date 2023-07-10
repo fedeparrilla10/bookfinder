@@ -1,27 +1,16 @@
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import './BookList.css';
+import Book from '../../components/Book/Book';
 
 const BookList = ({ books, favBook, setFavBook }) => {
-  const { authenticated } = useContext(AuthContext);
-
   const addToFav = (book) => {
     favBook.indexOf(book) === -1 && setFavBook([...favBook, book]);
   };
 
   const allBooks = books.map((book) => {
-    return (
-      <div key={book.id}>
-        <h3>{book.title}</h3>
-        <p>{book.description}</p>
-        <p>{book.author}</p>
-        {authenticated && (
-          <button onClick={() => addToFav(book)}>Add to Favourites</button>
-        )}
-      </div>
-    );
+    return <Book book={book} addToFav={addToFav} key={book.id} />;
   });
 
-  return <div>{allBooks}</div>;
+  return <div className="booklist-container">{allBooks}</div>;
 };
 
 export default BookList;

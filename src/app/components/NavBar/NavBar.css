@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  background-color: #f2ede8;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-left: 80px;
+}
+
+.logo__title {
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-family: 'Space Mono', monospace;
+}
+
+.logo__img {
+  height: 30px;
+  width: 30px;
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 60px;
+  margin-right: 80px;
+}
+
+.navbar__menu__item {
+  font-size: 14px;
+}
+
+.active {
+  font-weight: bold;
+}

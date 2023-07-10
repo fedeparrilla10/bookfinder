@@ -8,7 +8,6 @@ import Login from './app/pages/Login/Login';
 import Footer from './app/components/Footer/Footer';
 import { AuthProvider } from './app/context/AuthContext';
 import axios from 'axios';
-
 import './App.css';
 
 function App() {
@@ -26,30 +25,32 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <AuthProvider>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/booklist"
-            element={
-              <BookList
-                books={books}
-                favBook={favBook}
-                setFavBook={setFavBook}
-              />
-            }
-          ></Route>
-          <Route
-            path="/favourites"
-            element={<FavList favBook={favBook} />}
-          ></Route>
-          <Route path="/login" element={<Login />}></Route>
-        </Routes>
+        <div className="container__content-box">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/booklist"
+              element={
+                <BookList
+                  books={books}
+                  favBook={favBook}
+                  setFavBook={setFavBook}
+                />
+              }
+            ></Route>
+            <Route
+              path="/favourites"
+              element={<FavList favBook={favBook} />}
+            ></Route>
+            <Route path="/login" element={<Login />}></Route>
+          </Routes>
+        </div>
         <Footer />
       </AuthProvider>
-    </>
+    </div>
   );
 }
 

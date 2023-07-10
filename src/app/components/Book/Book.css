@@ -1,0 +1,30 @@
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 280px;
+  height: 575px;
+}
+
+.book__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book__img {
+  height: 380px;
+  width: 300px;
+  border-radius: 15px;
+}
+
+.book__description {
+  font-size: 15px;
+  line-height: 16px;
+  margin-bottom: auto;
+}
+
+.book__author {
+  font-size: 15px;
+}

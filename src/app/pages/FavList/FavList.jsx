@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const FavList = ({ favBook }) => {
   const { authenticated } = useContext(AuthContext);
@@ -21,7 +22,9 @@ const FavList = ({ favBook }) => {
       <div>{favBooks}</div>
     )
   ) : (
-    <p>You have to be logged in to see this content</p>
+    <Link to="/login">
+      <p>You have to be logged in to see this content</p>
+    </Link>
   );
 };
 
