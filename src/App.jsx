@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NavBar from './app/components/NavBar/NavBar';
+import NavBar from './app/core/NavBar/NavBar';
 import Home from './app/pages/Home/Home';
 import BookList from './app/pages/BookList/BookList';
 import FavList from './app/pages/FavList/FavList';
 import Login from './app/pages/Login/Login';
-import Footer from './app/components/Footer/Footer';
+import Footer from './app/core/Footer/Footer';
 import { AuthProvider } from './app/context/AuthContext';
 import axios from 'axios';
 import './App.css';
@@ -13,6 +13,11 @@ import './App.css';
 function App() {
   const [books, setBooks] = useState([]);
   const [favBook, setFavBook] = useState([]);
+
+  const removeFav = (bookId) => {
+    const updatedFavBooks = favBook.filter((book) => book.id !== bookId);
+    setFavBook(updatedFavBooks);
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -38,12 +43,19 @@ function App() {
                   books={books}
                   favBook={favBook}
                   setFavBook={setFavBook}
+                  removeFav={removeFav}
                 />
               }
             ></Route>
             <Route
               path="/favourites"
-              element={<FavList favBook={favBook} />}
+              element={
+                <FavList
+                  favBook={favBook}
+                  setFavBook={setFavBook}
+                  removeFav={removeFav}
+                />
+              }
             ></Route>
             <Route path="/login" element={<Login />}></Route>
           </Routes>

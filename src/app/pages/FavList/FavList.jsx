@@ -1,17 +1,15 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import Book from '../../components/Book/Book';
 
-const FavList = ({ favBook }) => {
+const FavList = ({ favBook, removeFav }) => {
   const { authenticated } = useContext(AuthContext);
 
   const favBooks = favBook.map((book) => {
     return (
-      <div key={book.id}>
-        <h3>{book.title}</h3>
-        <p>{book.description}</p>
-        <p>{book.author}</p>
-      </div>
+      <Book book={book} favBook={favBook} key={book.id} removeFav={removeFav} />
     );
   });
 
@@ -22,9 +20,12 @@ const FavList = ({ favBook }) => {
       <div>{favBooks}</div>
     )
   ) : (
-    <Link to="/login">
+    <>
       <p>You have to be logged in to see this content</p>
-    </Link>
+      <Link to="/login">
+        <Button name={'Log In'} />
+      </Link>
+    </>
   );
 };
 

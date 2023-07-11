@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import './Book.css';
+import Button from '../Button/Button';
 
-const Book = ({ book, addToFav }) => {
+const Book = ({ book, favBook, addToFav, removeFav }) => {
   const { authenticated } = useContext(AuthContext);
 
   return (
@@ -19,11 +20,20 @@ const Book = ({ book, addToFav }) => {
           <p className="book__rating">🌟 {book.rating}</p>
         </div>
       </div>
-      {authenticated && (
-        <button onClick={() => addToFav(book)} className="book__button">
-          Add to Favourites
-        </button>
-      )}
+      {authenticated &&
+        (favBook && favBook.indexOf(book) === -1 ? (
+          <Button
+            name="Add to Favourites"
+            handleClick={addToFav}
+            params={book}
+          />
+        ) : (
+          <Button
+            name="Remove from Favourites"
+            handleClick={removeFav}
+            params={book.id}
+          />
+        ))}
     </div>
   );
 };
