@@ -3,6 +3,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Book from '../../components/Book/Book';
+import './FavList.css';
 
 const FavList = ({ favBook, removeFav }) => {
   const { authenticated } = useContext(AuthContext);
@@ -17,15 +18,15 @@ const FavList = ({ favBook, removeFav }) => {
     favBook.length === 0 ? (
       <h3>You don't have any favourite books yet.</h3>
     ) : (
-      <div>{favBooks}</div>
+      <div className="favlist-container">{favBooks}</div>
     )
   ) : (
-    <>
+    <div className="favlist-offline-container">
       <p>You have to be logged in to see this content</p>
       <Link to="/login">
         <Button name={'Log In'} />
       </Link>
-    </>
+    </div>
   );
 };
 

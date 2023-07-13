@@ -9,6 +9,9 @@ import Footer from './app/core/Footer/Footer';
 import { AuthProvider } from './app/context/AuthContext';
 import axios from 'axios';
 import './App.css';
+import About from './app/pages/About/About';
+import BookDetail from './app/pages/BookDetail/BookDetail';
+import Register from './app/pages/Register/Register';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -48,6 +51,10 @@ function App() {
               }
             ></Route>
             <Route
+              path="/book/:id"
+              element={<BookDetail books={books} />}
+            ></Route>
+            <Route
               path="/favourites"
               element={
                 <FavList
@@ -57,6 +64,8 @@ function App() {
                 />
               }
             ></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
           </Routes>
         </div>

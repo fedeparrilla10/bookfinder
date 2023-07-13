@@ -31,13 +31,23 @@ const NavBar = () => {
             My Favourites
           </Link>
         </li>
+        <li>
+          <Link to="about" className="navbar__menu__item">
+            About
+          </Link>
+        </li>
 
         {!authenticated ? (
-          <li>
-            <Link to="login" className="navbar__menu__item">
-              Login
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link to="register">Register</Link>
+            </li>
+            <li>
+              <Link to="login" className="navbar__menu__item">
+                Login
+              </Link>
+            </li>
+          </>
         ) : (
           <li>
             <Link to="" onClick={logout} className="navbar__menu__item">
