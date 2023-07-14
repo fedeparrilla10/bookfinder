@@ -1,4 +1,7 @@
 import { useForm, Form } from 'react-hook-form';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const {
@@ -7,6 +10,9 @@ function Register() {
     handleSubmit,
     formState: { isSubmitSuccessful, errors },
   } = useForm();
+
+  const { getUsers } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -17,17 +23,30 @@ function Register() {
         },
         body: JSON.stringify(data),
       });
+      getUsers();
     } catch (error) {
       console.log('Error:', error.message);
     }
   };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      navigate('/login');
+    }
+  }, [isSubmitSuccessful]);
+
   return (
     <div>
       <Form control={control} onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('username')} />
-        <input type="password" {...register('password')} />
-        {isSubmitSuccessful && <p>Form submit successful.</p>}
+        <input {...register('username', { required: true, minLength: 6 })} />
+        <input
+          type="password"
+          {...register('password', {
+            required: true,
+            minLength: 8,
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+          })}
+        />
         {errors?.root?.server && <p>Form submit failed.</p>}
         <button type="submit">Submit</button>
       </Form>
