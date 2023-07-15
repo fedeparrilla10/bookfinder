@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import Button from '../../components/Button/Button';
+import { registerUser } from '../../services/registerUser';
 
 function Register() {
   const {
@@ -19,13 +20,7 @@ function Register() {
 
   const onSubmit = async (data) => {
     try {
-      await fetch('https://64a916088b9afaf4844a3ab6.mockapi.io/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      await registerUser(data);
       getUsers();
       reset();
     } catch (error) {
