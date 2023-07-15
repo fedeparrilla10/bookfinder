@@ -1,11 +1,23 @@
-import { AuthContext } from '../../context/AuthContext';
-import { useContext } from 'react';
+import image from '../../../assets/main-img.jpg';
+import './Home.css';
 
 const Home = () => {
-  const { authenticated, user } = useContext(AuthContext);
-
   return (
-    <div>{authenticated ? <h3>Welcome, {user}</h3> : <div>Home</div>}</div>
+    <>
+      <main className="home">
+        <div>
+          <h1 className="home__title">
+            <span className="home__title__b">B</span>ookFinder
+          </h1>
+
+          <p className="home__subtitle">Exploring Worlds Through Words</p>
+        </div>
+
+        <div>
+          <img className="home__img" src={image} alt="BookFinder" />
+        </div>
+      </main>
+    </>
   );
 };
 

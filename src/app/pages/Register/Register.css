@@ -1,0 +1,26 @@
+.register {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 80%;
+}
+
+.register__subtitle {
+  width: 50%;
+  text-align: center;
+}
+
+.register__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input {
+  width: 200px;
+  padding: 5px;
+}

@@ -34,3 +34,8 @@
 .navbar__menu__item {
   font-family: 'Lato', sans-serif;
 }
+
+.navbar__menu__welcome {
+  font-weight: bold;
+  cursor: default;
+}

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import './NavBar.css';
 import bookShelf from '../../../assets/book-shelf.svg';
+import './NavBar.css';
 
 const NavBar = () => {
-  const { authenticated, logout } = useContext(AuthContext);
+  const { authenticated, logout, user } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
@@ -49,11 +49,14 @@ const NavBar = () => {
             </li>
           </>
         ) : (
-          <li>
-            <Link to="" onClick={logout} className="navbar__menu__item">
-              Logout
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link to="" onClick={logout} className="navbar__menu__item">
+                Logout
+              </Link>
+            </li>
+            <li className="navbar__menu__welcome">Welcome, {user}</li>
+          </>
         )}
       </ul>
     </nav>
