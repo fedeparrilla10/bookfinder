@@ -33,9 +33,14 @@
 
 .navbar__menu__item {
   font-family: 'Lato', sans-serif;
+  font-size: 15px;
 }
 
 .navbar__menu__welcome {
   font-weight: bold;
   cursor: default;
+}
+
+.active {
+  font-weight: bold;
 }

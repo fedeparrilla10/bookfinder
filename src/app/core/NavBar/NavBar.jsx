@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import bookShelf from '../../../assets/book-shelf.svg';
@@ -9,51 +9,82 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="">
+      <NavLink exact activeClassName="active" to="">
         <div className="navbar__logo">
           <img src={bookShelf} alt="BookFinder Logo" className="logo__img" />
           <h2 className="logo__title">BookFinder</h2>
         </div>
-      </Link>
+      </NavLink>
       <ul className="navbar__menu">
         <li>
-          <Link to="" className="navbar__menu__item">
+          <NavLink
+            activeClassName="active"
+            className="navbar__menu__item"
+            to=""
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="booklist" className="navbar__menu__item">
+          <NavLink
+            activeClassName="active"
+            className="navbar__menu__item"
+            to="booklist"
+          >
             Books
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="favourites" className="navbar__menu__item">
+          <NavLink
+            activeClassName="active"
+            className="navbar__menu__item"
+            to="favourites"
+          >
             My Favourites
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="about" className="navbar__menu__item">
+          <NavLink
+            activeClassName="active"
+            className="navbar__menu__item"
+            to="about"
+          >
             About
-          </Link>
+          </NavLink>
         </li>
 
         {!authenticated ? (
           <>
             <li>
-              <Link to="register">Register</Link>
+              <NavLink
+                activeClassName="active"
+                className="navbar__menu__item"
+                to="register"
+              >
+                Register
+              </NavLink>
             </li>
             <li>
-              <Link to="login" className="navbar__menu__item">
+              <NavLink
+                activeClassName="active"
+                className="navbar__menu__item"
+                to="login"
+              >
                 Login
-              </Link>
+              </NavLink>
             </li>
           </>
         ) : (
           <>
             <li>
-              <Link to="" onClick={logout} className="navbar__menu__item">
+              <NavLink
+                activeClassName="active"
+                className="navbar__menu__item"
+                to=""
+                onClick={logout}
+              >
                 Logout
-              </Link>
+              </NavLink>
             </li>
             <li className="navbar__menu__welcome">Welcome, {user}</li>
           </>
