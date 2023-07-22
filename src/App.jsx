@@ -6,7 +6,6 @@ import BookList from './app/pages/BookList/BookList';
 import FavList from './app/pages/FavList/FavList';
 import Login from './app/pages/Login/Login';
 import Footer from './app/core/Footer/Footer';
-import { AuthProvider } from './app/context/AuthContext';
 import axios from 'axios';
 import './App.css';
 import About from './app/pages/About/About';
@@ -34,43 +33,41 @@ function App() {
 
   return (
     <div className="container">
-      <AuthProvider>
-        <NavBar />
-        <div className="container__content-box">
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route
-              path="/booklist"
-              element={
-                <BookList
-                  books={books}
-                  favBook={favBook}
-                  setFavBook={setFavBook}
-                  removeFav={removeFav}
-                />
-              }
-            ></Route>
-            <Route
-              path="/book/:id"
-              element={<BookDetail books={books} />}
-            ></Route>
-            <Route
-              path="/favourites"
-              element={
-                <FavList
-                  favBook={favBook}
-                  setFavBook={setFavBook}
-                  removeFav={removeFav}
-                />
-              }
-            ></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-          </Routes>
-        </div>
-        <Footer />
-      </AuthProvider>
+      <NavBar />
+      <div className="container__content-box">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/booklist"
+            element={
+              <BookList
+                books={books}
+                favBook={favBook}
+                setFavBook={setFavBook}
+                removeFav={removeFav}
+              />
+            }
+          ></Route>
+          <Route
+            path="/book/:id"
+            element={<BookDetail books={books} />}
+          ></Route>
+          <Route
+            path="/favourites"
+            element={
+              <FavList
+                favBook={favBook}
+                setFavBook={setFavBook}
+                removeFav={removeFav}
+              />
+            }
+          ></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }
