@@ -36,7 +36,7 @@ function App() {
       <NavBar />
       <div className="container__content-box">
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="" element={<Home />}></Route>
           <Route
             path="/booklist"
             element={

@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './app/context/AuthContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Router>
+  <Router basename="/bookfinder">
     <AuthProvider>
       <App />
     </AuthProvider>
