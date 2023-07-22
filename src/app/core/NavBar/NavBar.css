@@ -41,6 +41,6 @@
   cursor: default;
 }
 
-.active {
+.navbar a.active {
   font-weight: bold;
 }

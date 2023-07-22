@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <NavLink exact activeClassName="active" to="">
+      <NavLink to="">
         <div className="navbar__logo">
           <img src={bookShelf} alt="BookFinder Logo" className="logo__img" />
           <h2 className="logo__title">BookFinder</h2>
@@ -17,38 +17,22 @@ const NavBar = () => {
       </NavLink>
       <ul className="navbar__menu">
         <li>
-          <NavLink
-            activeClassName="active"
-            className="navbar__menu__item"
-            to=""
-          >
+          <NavLink className="navbar__menu__item" to="">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            activeClassName="active"
-            className="navbar__menu__item"
-            to="booklist"
-          >
+          <NavLink className="navbar__menu__item" to="booklist">
             Books
           </NavLink>
         </li>
         <li>
-          <NavLink
-            activeClassName="active"
-            className="navbar__menu__item"
-            to="favourites"
-          >
+          <NavLink className="navbar__menu__item" to="favourites">
             My Favourites
           </NavLink>
         </li>
         <li>
-          <NavLink
-            activeClassName="active"
-            className="navbar__menu__item"
-            to="about"
-          >
+          <NavLink className="navbar__menu__item" to="about">
             About
           </NavLink>
         </li>
@@ -56,20 +40,12 @@ const NavBar = () => {
         {!authenticated ? (
           <>
             <li>
-              <NavLink
-                activeClassName="active"
-                className="navbar__menu__item"
-                to="register"
-              >
+              <NavLink className="navbar__menu__item" to="register">
                 Register
               </NavLink>
             </li>
             <li>
-              <NavLink
-                activeClassName="active"
-                className="navbar__menu__item"
-                to="login"
-              >
+              <NavLink className="navbar__menu__item" to="login">
                 Login
               </NavLink>
             </li>
@@ -77,12 +53,7 @@ const NavBar = () => {
         ) : (
           <>
             <li>
-              <Link
-                // activeClassName="active"
-                className="navbar__menu__item"
-                to=""
-                onClick={logout}
-              >
+              <Link className="navbar__menu__item" to="" onClick={logout}>
                 Logout
               </Link>
             </li>
