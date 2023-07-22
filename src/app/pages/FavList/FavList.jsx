@@ -15,11 +15,13 @@ const FavList = ({ favBook, removeFav }) => {
   });
 
   return authenticated ? (
-    favBook.length === 0 ? (
-      <h3>You don't have any favourite books yet.</h3>
-    ) : (
-      <div className="favlist-container">{favBooks}</div>
-    )
+    <div className="favlist-container">
+      {favBook.length > 0 ? (
+        { favBooks }
+      ) : (
+        <h3>You don't have any favourite books yet.</h3>
+      )}
+    </div>
   ) : (
     <div className="favlist-offline-container">
       <p>You have to be logged in to see this content</p>

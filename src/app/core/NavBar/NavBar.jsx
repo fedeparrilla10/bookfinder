@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import bookShelf from '../../../assets/book-shelf.svg';
@@ -77,14 +77,14 @@ const NavBar = () => {
         ) : (
           <>
             <li>
-              <NavLink
-                activeClassName="active"
+              <Link
+                // activeClassName="active"
                 className="navbar__menu__item"
                 to=""
                 onClick={logout}
               >
                 Logout
-              </NavLink>
+              </Link>
             </li>
             <li className="navbar__menu__welcome">Welcome, {user}</li>
           </>
