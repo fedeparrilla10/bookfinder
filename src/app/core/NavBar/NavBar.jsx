@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <NavLink to="">
+      <NavLink to="/">
         <div className="navbar__logo">
           <img src={bookShelf} alt="BookFinder Logo" className="logo__img" />
           <h2 className="logo__title">BookFinder</h2>
@@ -17,7 +17,7 @@ const NavBar = () => {
       </NavLink>
       <ul className="navbar__menu">
         <li>
-          <NavLink className="navbar__menu__item" to="">
+          <NavLink className="navbar__menu__item" to="/">
             Home
           </NavLink>
         </li>
