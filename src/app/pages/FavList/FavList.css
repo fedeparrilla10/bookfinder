@@ -1,19 +1,28 @@
 .favlist-container {
-  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 65px;
+  gap: 35px;
   margin-bottom: auto;
 }
 
 .favlist-offline-container {
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+@media (min-width: 1280px) {
+  .favlist-container {
+    height: 80vh;
+    gap: 65px;
+  }
+
+  .favlist-offline-container {
+    height: 80vh;
+  }
 }
